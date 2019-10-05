@@ -1,0 +1,110 @@
+.minewrap{
+    /* display: flex; */
+    position: relative;
+    margin: 30px auto;
+}
+.level{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.level button{ 
+    border: none;
+    padding: 5px 15px;
+    background: #02a4ad;
+    color: #fff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 16px;
+}
+.level button.active{
+    background: #00abff;
+}
+.introduction{
+    position: absolute;
+    width: 250px;
+    top:15px;
+    right: 100px;
+    text-align: left;
+
+
+}
+
+
+table{
+    margin: 0 auto;
+    background: #929196;
+    border-spacing: 1px;
+}
+td{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background: #ccc;
+    border: 2px solid;
+    border-color:#fff #a1a1a1 #a1a1a1 #fff;
+    text-align: center;
+    font-weight: bold;
+
+}
+.info{
+    margin-top: 10px;
+    text-align: center;
+}
+.mine{
+    background:url("./img/mine.jpeg") no-repeat center;
+    background-size: 15px 15px;
+    background-color: #d9d9d9;
+}
+
+.flag{
+    background:url("./img/flag.jpg") no-repeat center;
+    background-size: cover;
+    background-color: #ccc;
+}
+/* 数字样式 */
+td.zero{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+}
+td.one{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#0332fe;
+}
+td.two{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#019f02;
+}
+td.three{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#ff2600;
+}
+td.four{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#93208f;
+}
+td.five{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#ff7f29;
+}
+td.six{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#ff3fff;
+}
+td.seven{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#3fffbf;
+}
+td.eight{
+    border-color:#d9d9d9;
+    background: #d9d9d9;
+    color:#22ee0f;
+}
