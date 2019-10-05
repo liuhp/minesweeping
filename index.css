@@ -2,6 +2,7 @@
     /* display: flex; */
     position: relative;
     margin: 30px auto;
+
 }
 .level{
     text-align: center;
@@ -21,16 +22,14 @@
 .level button.active{
     background: #00abff;
 }
-.introduction{
-    position: absolute;
-    width: 250px;
-    top:15px;
-    right: 100px;
-    text-align: left;
-
-
+.main{
+    
+    justify-content: center;
 }
-
+.introduction{
+    width:50%;
+    margin:0 auto;
+}
 
 table{
     margin: 0 auto;

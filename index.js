@@ -6,8 +6,9 @@ function Mine(tr,td,mineNum){
     this.squares = [];//存储所有方块的信息,二维数组，按行列顺序排放
     this.tds = [];//存放所有单元格的DOM
     this.surplusMineNum = mineNum;//剩余雷的数组
+    this.allmineNum  = mineNum;//总雷数
     this.parent = document.getElementsByClassName('minebox')[0];//扫雷区域要插入table的父级
-    this.allRight = false;//判断小红旗是否全部插对 
+    this.allRight = 0;//判断小红旗是否全部插对 
 }
 
 //生成table扫雷区域
@@ -157,19 +158,19 @@ Mine.prototype.play = function(event,tdobj){
                showaround(cursquare);
             }
         } else{ //点到的不是数字，是雷
-            alert('游戏失败 ');
+            alert('很遗憾！游戏失败 ');
             this.gameover(tdobj);
         }
     }
     if(event.which == 3){//which=1代表鼠标左键,which=3鼠标右键
+        
         //已经显示的数字不能右击
         if(tdobj.className && tdobj.className != 'flag'){
             return;
         }
-        if(this.squares[tdobj.pos[0]][tdobj.pos[1]].type = 'mine'){//有问题，奇数失败，偶数成功，或者最后一次决定
-            this.allRight = true;
-        }else{
-            this.allRight = false;
+        if(this.squares[tdobj.pos[0]][tdobj.pos[1]].type == 'mine'){//有问题，奇数失败，偶数成功，或者最后一次决定
+            this.allRight ++;
+            // console.log(this.allRight)
         }
         //右击剩余雷数变化,小红旗切换
         if(tdobj.className == 'flag'){
@@ -177,14 +178,17 @@ Mine.prototype.play = function(event,tdobj){
             this.surplusMineNumDom.innerHTML = ++this.surplusMineNum ;
         }else{
             tdobj.className ='flag';
+            console.log('1')
             this.surplusMineNumDom.innerHTML = --this.surplusMineNum ;
         }
         if(this.surplusMineNum ==0){//用户标完小红旗了
-            console.log(this.allright)
-            if(this.allRight){
-                alert('游戏胜利');
+            console.log('2')
+            if(this.allRight == this.allmineNum){
+                alert('恭喜你！游戏胜利！');
             }else{
-                alert('游戏失败'); 
+                
+                alert('很遗憾！游戏失败'); 
+                this.gameover(tdobj);
             }
         }
 
@@ -194,7 +198,7 @@ Mine.prototype.gameover = function(tdobj){
     //取消点击事件
     // 显示所有的雷
     //当前点击的雷变红
-    tdobj.onmousedown = null;
+    
     for(var i=0; i<this.tr;i++){
         for(var j=0;j<this.td;j++){
             if(this.squares[i][j].type == 'mine'){
@@ -211,6 +215,7 @@ var levelBtn = document.querySelectorAll('.level button');
 var levelarr = [[9,9,10],[16,16,40],[28,28,99]];
 var mine = null;
 var ln = 0;//处理当前选中的状态
+
 for(let i=0;i<levelBtn.length-1;i++){
     levelBtn[i].onclick = function(){
         levelBtn[ln].className = '';
@@ -220,6 +225,7 @@ for(let i=0;i<levelBtn.length-1;i++){
         ln = i;
     }   
 }
+
 
 levelBtn[3].onclick = function(){
     mine.init();
